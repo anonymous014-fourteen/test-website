@@ -1,0 +1,22 @@
+let slider = document.querySelector('.slider');
+let slides = document.querySelectorAll('.slide');
+let currentIndex = 0;
+
+function showNextSlide() {
+    currentIndex++;
+    if (currentIndex >= slides.length) {
+        currentIndex = 0;
+    }
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function showPrevSlide() {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = slides.length - 1;
+    }
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Auto slide every 3 seconds (optional)
+setInterval(showNextSlide, 3000);
